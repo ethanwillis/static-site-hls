@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:lessconversation:static-site-hls:player-config",
+  "title": "static-site-hls player config",
+  "description": "Settings written into <data-dir>/static-site-hls.js (the `/*CONFIG*/ {…}` literal) and from there inlined into every built page that plays HLS. Not migrated: the player file is regenerated from the index settings on every convert, and pages are rebuilt when it changes.",
+  "type": "object",
+  "required": ["dataDir", "videosDir", "posters"],
+  "additionalProperties": false,
+  "properties": {
+    "dataDir": {
+      "description": "--data-dir, relative to the site root. With videosDir, lets the player find a playlist's site root, and hls.min.js from there.",
+      "$ref": "#/$defs/relativePath"
+    },
+    "videosDir": {
+      "description": "--videos-dir, relative to dataDir.",
+      "$ref": "#/$defs/relativePath"
+    },
+    "posters": {
+      "description": "Whether the player sets each playlist's poster.jpg as the video's poster.",
+      "type": "boolean"
+    }
+  },
+  "$defs": {
+    "relativePath": {
+      "type": "string",
+      "pattern": "^(?!/)(?!.*/$)(?!.*//)(?!(?:.*/)?\\.{1,2}(?:/|$))[^\\\\]+$"
+    }
+  }
+}
