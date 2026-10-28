@@ -78,6 +78,9 @@ npm run deps:update    # update everything, then run the tests
 | `semver` (dev) | `^` range | release script |
 | `wasmer/ffmpeg` (WASIX) | `FFMPEG_PACKAGE` in `src/convert.js`, exact | downloaded at run time from the Wasmer registry; its encoders decide what the tool can do |
 
+<details>
+<summary>Diagram: the dependency update workflow</summary>
+
 ```mermaid
 sequenceDiagram
   actor Dev as Developer
@@ -97,6 +100,8 @@ sequenceDiagram
   Note over Dev: review the diff, npm run try on a real site, commit
 ```
 
+</details>
+
 A new hls.js reaches sites on their next `convert` (it is copied every run). A new wasmer/ffmpeg changes nothing for already converted videos: conversion is decided by source hashes, not tool versions.
 
 ## Releasing
@@ -109,6 +114,9 @@ npm run release:stage -- minor --dry-run    # checks + tests + package contents,
 npm run release:stage -- minor              # or patch / major / 1.2.3
 npm run release:stage -- prerelease --preid beta   # 0.2.0-beta.0, dist-tag "next"
 ```
+
+<details>
+<summary>Diagram: the staged release workflow</summary>
 
 ```mermaid
 sequenceDiagram
@@ -141,6 +149,8 @@ sequenceDiagram
   NPM-->>NPM: version goes live
   Dev->>Git: git push --follow-tags
 ```
+
+</details>
 
 To abandon a staged version: `npm stage reject <stage-id>`, then `git tag -d v<version> && git reset --soft HEAD~1`.
 

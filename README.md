@@ -37,6 +37,9 @@ Or run it without installing: `npx @lessconversation/static-site-hls --help`.
 3. points the `.scroll` files at the playlists, adds a small player for browsers without native HLS, and rebuilds the HTML with `scroll build`;
 4. remembers what it did in an index, so later runs only convert videos whose content changed.
 
+<details>
+<summary>Diagram: how static-site-hls works, stage by stage</summary>
+
 ```mermaid
 ---
 config:
@@ -115,6 +118,8 @@ flowchart TB
   %% links 0-2 are the invisible spacers that lay out the key; keep them first
   linkStyle 0,1,2 stroke:none,stroke-width:0
 ```
+
+</details>
 
 `static-site-hls scan` runs only stage 1 and writes nothing; `static-site-hls convert` (the default command) runs stages 1 to 3. Stage 4 is yours: everything the tool generates lives in one folder of the site, `static-site-hls/`, which you commit and deploy with the site.
 

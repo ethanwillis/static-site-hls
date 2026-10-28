@@ -15,6 +15,9 @@ Developer-side workflows (tests, dependency updates, releases) are in [developme
 
 A site with one page and one video, no data folder yet: `static-site-hls my-site`.
 
+<details>
+<summary>Diagram: convert, first run</summary>
+
 ```mermaid
 sequenceDiagram
   autonumber
@@ -67,11 +70,16 @@ sequenceDiagram
   CLI->>Dev: "Done: 1 converted, … 1 source(s) updated."
 ```
 
+</details>
+
 The WASIX sandbox is created only when a video needs converting; a run that only rewrites sources or moves folders never loads ffmpeg.
 
 ## convert after a video changes
 
 The developer overwrote `media/intro.mp4` in place. Pages already point at the playlist, so only the HLS output and the index change.
+
+<details>
+<summary>Diagram: convert after a video changes</summary>
 
 ```mermaid
 sequenceDiagram
@@ -97,11 +105,16 @@ sequenceDiagram
   Apply-->>Dev: Done: 1 converted, 0 source(s) updated
 ```
 
+</details>
+
 Other reasons a video is converted again: its HLS output folder or (with posters on) its `poster.jpg` is missing (`rebuild`). Unchanged videos are never touched: the content hash, not the file date, decides.
 
 ## Reading and migrating the index
 
 Every `scan` reads the index through the index store. Older versions are upgraded in memory; the file on disk changes only when `convert` saves it.
+
+<details>
+<summary>Diagram: reading and migrating the index</summary>
 
 ```mermaid
 sequenceDiagram
@@ -135,7 +148,12 @@ sequenceDiagram
   Store->>Store: write index.json.tmp, rename over index.json
 ```
 
+</details>
+
 ## Changing settings: `--videos-dir`, `--posters`
+
+<details>
+<summary>Diagram: changing --videos-dir and --posters</summary>
 
 ```mermaid
 sequenceDiagram
@@ -155,11 +173,16 @@ sequenceDiagram
   Apply->>Scroll: scroll build
 ```
 
+</details>
+
 Both settings are saved in the index, so later runs keep them without the flags.
 
 ## Page load and playback
 
 A visitor opens a page whose script does `video.src = "static-site-hls/videos/why/index.m3u8"` (launchation.com's background video works this way).
+
+<details>
+<summary>Diagram: page load and playback</summary>
 
 ```mermaid
 sequenceDiagram
@@ -193,11 +216,16 @@ sequenceDiagram
   V->>P: hook: new poster, (hls.js) destroy old Hls, attach new
 ```
 
+</details>
+
 Markup works the same way through the MutationObserver: `<video src="….m3u8">` or a `<source>` with a playlist triggers the poster and, without native HLS, hls.js.
 
 Why posters matter: a video can't show anything until its whole first segment has arrived, and segments split on the source's keyframes (often 8 s apart, hundreds of KB). On a throttled mobile connection that measured 10.6 s of empty background on launchation.com without posters, and about 4 s Speed Index with them.
 
 ## serve
+
+<details>
+<summary>Diagram: serve</summary>
 
 ```mermaid
 sequenceDiagram
@@ -215,3 +243,5 @@ sequenceDiagram
   B->>Srv: GET /../outside
   Srv-->>B: 403 / 404 (never serves outside the site)
 ```
+
+</details>

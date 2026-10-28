@@ -14,6 +14,9 @@
 
 ## The round trip
 
+<details>
+<summary>Diagram: a Scroll site before and after convert</summary>
+
 ```mermaid
 flowchart LR
   subgraph before [Before]
@@ -38,6 +41,8 @@ flowchart LR
   s2 --> build --> h
   d -. "player inlined from" .-> build
 ```
+
+</details>
 
 The same example as text diffs (from a real run):
 

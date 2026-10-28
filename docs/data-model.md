@@ -17,6 +17,9 @@ Two kinds of types:
 
 ## How the types flow
 
+<details>
+<summary>Diagram: how the types flow between components</summary>
+
 ```mermaid
 flowchart LR
   idxfile[("index.json<br/><b>Index</b> v1 or v2")]
@@ -46,11 +49,16 @@ flowchart LR
   apply -- "<b>ApplyResult</b>" --> summary{{"CLI: summary"}}
 ```
 
+</details>
+
 ## Persisted and embedded formats
 
 ### Index (`index.json`)
 
 Schema: [`schemas/index.v2.schema.json`](../schemas/index.v2.schema.json) (current). Owner: the index store (`src/index-store.js`).
+
+<details>
+<summary>Diagram: the index (index.json) structure</summary>
 
 ```mermaid
 classDiagram
@@ -93,6 +101,8 @@ classDiagram
   VideoEntry <|-- UnsupportedVideo
   ConvertedVideo *-- Hls
 ```
+
+</details>
 
 A real entry:
 
@@ -146,6 +156,9 @@ Written into the `/*CONFIG*/ {…}` literal of `<data-dir>/static-site-hls.js`, 
 | `Index`, `VideoEntry` | `src/index-store.js` (mirrors the schema) | `readIndex()`, `apply()` | everything |
 | `PlayerConfig` | `src/player-install.js` (mirrors the schema) | `apply()` | `installPlayer()` |
 
+<details>
+<summary>Diagram: in-process types</summary>
+
 ```mermaid
 classDiagram
   direction LR
@@ -196,6 +209,8 @@ classDiagram
   ScanPlan *-- "0..*" VideoPlan
   PageScan *-- "0..*" VideoRef
 ```
+
+</details>
 
 `VideoStatus` is one of `new`, `changed`, `rebuild` (output or poster missing), `unchanged`, `unsupported`, `missing` (source deleted; output kept). `new`, `changed` and `rebuild` are converted.
 

@@ -11,6 +11,9 @@ Then a [module map](#module-map) and the [design decisions](#design-decisions) b
 
 **Notation.** C4 elements drawn as flowcharts (mermaid's own C4 diagrams lay out poorly):
 
+<details>
+<summary>Diagram: notation key</summary>
+
 ```mermaid
 flowchart LR
   p(["<b>Person</b>"]):::person
@@ -32,7 +35,12 @@ flowchart LR
   style b fill:none,stroke:#444,stroke-dasharray:5 5
 ```
 
+</details>
+
 ## Level 1: System context
+
+<details>
+<summary>Diagram: system context (C4 level 1)</summary>
 
 ```mermaid
 flowchart TB
@@ -58,9 +66,14 @@ flowchart TB
   classDef external fill:#999,stroke:#6b6b6b,color:#fff
 ```
 
+</details>
+
 static-site-hls never talks to the web host or the visitor. Everything that reaches the visitor goes through the Scroll site: the rewritten pages, the HLS files and the player, all deployed like any other file of the site.
 
 ## Level 2: Containers
+
+<details>
+<summary>Diagram: containers (C4 level 2)</summary>
 
 ```mermaid
 flowchart TB
@@ -101,6 +114,8 @@ flowchart TB
   style tool fill:none,stroke:#444,stroke-dasharray:5 5
 ```
 
+</details>
+
 | Container | Runs where | Lifetime |
 | --- | --- | --- |
 | CLI, core library | Developer's machine, one Node.js process | One command |
@@ -113,6 +128,9 @@ flowchart TB
 ## Level 3: Components
 
 ### Core library
+
+<details>
+<summary>Diagram: core library components (C4 level 3)</summary>
 
 ```mermaid
 flowchart TB
@@ -156,9 +174,14 @@ flowchart TB
   style core fill:none,stroke:#444,stroke-dasharray:5 5
 ```
 
+</details>
+
 `layout.js` (not drawn) holds the names every component shares: the default folders, `index.json`, `static-site-hls.js`, `hls.min.js`, `index.m3u8`, `poster.jpg`.
 
 ### Player
+
+<details>
+<summary>Diagram: player components (C4 level 3)</summary>
 
 ```mermaid
 flowchart TB
@@ -193,9 +216,14 @@ flowchart TB
   style player fill:none,stroke:#444,stroke-dasharray:5 5
 ```
 
+</details>
+
 With native HLS (Safari, iOS, recent Chrome), the loader stays idle: the browser plays the playlist URL itself and only posters are set.
 
 ## Deployment
+
+<details>
+<summary>Diagram: deployment</summary>
 
 ```mermaid
 flowchart LR
@@ -239,6 +267,8 @@ flowchart LR
   style hosting fill:none,stroke:#444,stroke-dasharray:5 5
   style device fill:none,stroke:#444,stroke-dasharray:5 5
 ```
+
+</details>
 
 The original video files stay in the site and are deployed with it: they are the conversion sources, and pages fall back to them for videos that can't be converted.
 
