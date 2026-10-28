@@ -79,7 +79,7 @@ npm run deps:update    # update everything, then run the tests
 | `wasmer/ffmpeg` (WASIX) | `FFMPEG_PACKAGE` in `src/convert.js`, exact | downloaded at run time from the Wasmer registry; its encoders decide what the tool can do |
 
 <details>
-<summary>Diagram: the dependency update workflow</summary>
+<summary><h4>◆&ensp;Diagram&ensp;·&ensp;The dependency update workflow&ensp;<sub>click to expand</sub></h4></summary>
 
 ```mermaid
 sequenceDiagram
@@ -116,7 +116,7 @@ npm run release:stage -- prerelease --preid beta   # 0.2.0-beta.0, dist-tag "nex
 ```
 
 <details>
-<summary>Diagram: the staged release workflow</summary>
+<summary><h4>◆&ensp;Diagram&ensp;·&ensp;The staged release workflow&ensp;<sub>click to expand</sub></h4></summary>
 
 ```mermaid
 sequenceDiagram

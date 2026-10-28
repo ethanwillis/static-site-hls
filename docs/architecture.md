@@ -12,7 +12,7 @@ Then a [module map](#module-map) and the [design decisions](#design-decisions) b
 **Notation.** C4 elements drawn as flowcharts (mermaid's own C4 diagrams lay out poorly):
 
 <details>
-<summary>Diagram: notation key</summary>
+<summary><h4>◆&ensp;Diagram&ensp;·&ensp;C4 notation key&ensp;<sub>click to expand</sub></h4></summary>
 
 ```mermaid
 flowchart LR
@@ -40,7 +40,7 @@ flowchart LR
 ## Level 1: System context
 
 <details>
-<summary>Diagram: system context (C4 level 1)</summary>
+<summary><h4>◆&ensp;Diagram&ensp;·&ensp;System context (C4 level 1)&ensp;<sub>click to expand</sub></h4></summary>
 
 ```mermaid
 flowchart TB
@@ -73,7 +73,7 @@ static-site-hls never talks to the web host or the visitor. Everything that reac
 ## Level 2: Containers
 
 <details>
-<summary>Diagram: containers (C4 level 2)</summary>
+<summary><h4>◆&ensp;Diagram&ensp;·&ensp;Containers (C4 level 2)&ensp;<sub>click to expand</sub></h4></summary>
 
 ```mermaid
 flowchart TB
@@ -130,7 +130,7 @@ flowchart TB
 ### Core library
 
 <details>
-<summary>Diagram: core library components (C4 level 3)</summary>
+<summary><h4>◆&ensp;Diagram&ensp;·&ensp;Core library components (C4 level 3)&ensp;<sub>click to expand</sub></h4></summary>
 
 ```mermaid
 flowchart TB
@@ -181,7 +181,7 @@ flowchart TB
 ### Player
 
 <details>
-<summary>Diagram: player components (C4 level 3)</summary>
+<summary><h4>◆&ensp;Diagram&ensp;·&ensp;Player components (C4 level 3)&ensp;<sub>click to expand</sub></h4></summary>
 
 ```mermaid
 flowchart TB
@@ -223,7 +223,7 @@ With native HLS (Safari, iOS, recent Chrome), the loader stays idle: the browser
 ## Deployment
 
 <details>
-<summary>Diagram: deployment</summary>
+<summary><h4>◆&ensp;Diagram&ensp;·&ensp;Deployment&ensp;<sub>click to expand</sub></h4></summary>
 
 ```mermaid
 flowchart LR

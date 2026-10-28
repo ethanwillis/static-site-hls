@@ -16,7 +16,7 @@ Developer-side workflows (tests, dependency updates, releases) are in [developme
 A site with one page and one video, no data folder yet: `static-site-hls my-site`.
 
 <details>
-<summary>Diagram: convert, first run</summary>
+<summary><h4>◆&ensp;Diagram&ensp;·&ensp;<code>convert</code>, first run&ensp;<sub>click to expand</sub></h4></summary>
 
 ```mermaid
 sequenceDiagram
@@ -79,7 +79,7 @@ The WASIX sandbox is created only when a video needs converting; a run that only
 The developer overwrote `media/intro.mp4` in place. Pages already point at the playlist, so only the HLS output and the index change.
 
 <details>
-<summary>Diagram: convert after a video changes</summary>
+<summary><h4>◆&ensp;Diagram&ensp;·&ensp;<code>convert</code> after a video changes&ensp;<sub>click to expand</sub></h4></summary>
 
 ```mermaid
 sequenceDiagram
@@ -114,7 +114,7 @@ Other reasons a video is converted again: its HLS output folder or (with posters
 Every `scan` reads the index through the index store. Older versions are upgraded in memory; the file on disk changes only when `convert` saves it.
 
 <details>
-<summary>Diagram: reading and migrating the index</summary>
+<summary><h4>◆&ensp;Diagram&ensp;·&ensp;Reading and migrating the index&ensp;<sub>click to expand</sub></h4></summary>
 
 ```mermaid
 sequenceDiagram
@@ -153,7 +153,7 @@ sequenceDiagram
 ## Changing settings: `--videos-dir`, `--posters`
 
 <details>
-<summary>Diagram: changing --videos-dir and --posters</summary>
+<summary><h4>◆&ensp;Diagram&ensp;·&ensp;Changing <code>--videos-dir</code> and <code>--posters</code>&ensp;<sub>click to expand</sub></h4></summary>
 
 ```mermaid
 sequenceDiagram
@@ -182,7 +182,7 @@ Both settings are saved in the index, so later runs keep them without the flags.
 A visitor opens a page whose script does `video.src = "static-site-hls/videos/why/index.m3u8"` (launchation.com's background video works this way).
 
 <details>
-<summary>Diagram: page load and playback</summary>
+<summary><h4>◆&ensp;Diagram&ensp;·&ensp;Page load and playback&ensp;<sub>click to expand</sub></h4></summary>
 
 ```mermaid
 sequenceDiagram
@@ -225,7 +225,7 @@ Why posters matter: a video can't show anything until its whole first segment ha
 ## serve
 
 <details>
-<summary>Diagram: serve</summary>
+<summary><h4>◆&ensp;Diagram&ensp;·&ensp;<code>serve</code>&ensp;<sub>click to expand</sub></h4></summary>
 
 ```mermaid
 sequenceDiagram

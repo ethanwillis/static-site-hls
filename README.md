@@ -38,7 +38,7 @@ Or run it without installing: `npx @lessconversation/static-site-hls --help`.
 4. remembers what it did in an index, so later runs only convert videos whose content changed.
 
 <details>
-<summary>Diagram: how static-site-hls works, stage by stage</summary>
+<summary><h4>◆&ensp;Diagram&ensp;·&ensp;How static-site-hls works, stage by stage&ensp;<sub>click to expand</sub></h4></summary>
 
 ```mermaid
 ---

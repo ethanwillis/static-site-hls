@@ -15,7 +15,7 @@
 ## The round trip
 
 <details>
-<summary>Diagram: a Scroll site before and after convert</summary>
+<summary><h4>◆&ensp;Diagram&ensp;·&ensp;A Scroll site before and after convert&ensp;<sub>click to expand</sub></h4></summary>
 
 ```mermaid
 flowchart LR

@@ -18,7 +18,7 @@ Two kinds of types:
 ## How the types flow
 
 <details>
-<summary>Diagram: how the types flow between components</summary>
+<summary><h4>◆&ensp;Diagram&ensp;·&ensp;How the types flow between components&ensp;<sub>click to expand</sub></h4></summary>
 
 ```mermaid
 flowchart LR
@@ -58,7 +58,7 @@ flowchart LR
 Schema: [`schemas/index.v2.schema.json`](../schemas/index.v2.schema.json) (current). Owner: the index store (`src/index-store.js`).
 
 <details>
-<summary>Diagram: the index (index.json) structure</summary>
+<summary><h4>◆&ensp;Diagram&ensp;·&ensp;The index (<code>index.json</code>) structure&ensp;<sub>click to expand</sub></h4></summary>
 
 ```mermaid
 classDiagram
@@ -157,7 +157,7 @@ Written into the `/*CONFIG*/ {…}` literal of `<data-dir>/static-site-hls.js`, 
 | `PlayerConfig` | `src/player-install.js` (mirrors the schema) | `apply()` | `installPlayer()` |
 
 <details>
-<summary>Diagram: in-process types</summary>
+<summary><h4>◆&ensp;Diagram&ensp;·&ensp;In-process types&ensp;<sub>click to expand</sub></h4></summary>
 
 ```mermaid
 classDiagram
