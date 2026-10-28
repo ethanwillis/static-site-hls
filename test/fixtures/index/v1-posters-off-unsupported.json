@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "videosDir": "videos",
+  "posters": false,
+  "videos": {
+    "clips/brunch clip.mp4": {
+      "id": "clips/brunch clip",
+      "sha256": "51340618f0d97cdd65cf9b2434ea720f003ac5b1e82aa6496781687e4b1693da",
+      "codecs": {
+        "video": "h264",
+        "audio": "aac (from opus)"
+      },
+      "segments": 2,
+      "convertedAt": "2026-10-27T14:54:31.651Z"
+    },
+    "intro.mov": {
+      "id": "intro",
+      "sha256": "0c28af2ffb486dbea4636161236346b4798fe01d4cc86223e7dc3eb4f9b378fe",
+      "duration": 4.5,
+      "codecs": {
+        "video": "h264"
+      },
+      "segments": 1,
+      "poster": "poster.jpg",
+      "convertedAt": "2026-10-27T15:01:02.000Z"
+    },
+    "clips/vp9.webm": {
+      "id": "clips/vp9",
+      "sha256": "4fb99e273ce133bbebd69c0f74ddb56dd02ef3161dfc05742bcd09c7f93f4ef0",
+      "unsupported": "video codec is vp9; only H.264 can be converted (stream copy), because the WASIX ffmpeg build has no H.264 encoder. Re-encode the source to H.264 first"
+    }
+  },
+  "pages": {
+    "sub/page.scroll": ["clips/brunch clip.mp4", "intro.mov"]
+  }
+}

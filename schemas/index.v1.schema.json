@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:lessconversation:static-site-hls:index:v1",
+  "title": "static-site-hls index, version 1 (legacy)",
+  "description": "The index format written by static-site-hls 0.1.x. Only read: it is validated against this schema and then migrated to the current version (src/migrations.js). `posters` was added during 0.1.x, so older version 1 files lack it.",
+  "type": "object",
+  "required": ["version", "videosDir", "videos", "pages"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "const": 1 },
+    "videosDir": { "$ref": "#/$defs/relativePath" },
+    "posters": { "type": "boolean" },
+    "videos": {
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/relativePath" },
+      "additionalProperties": {
+        "oneOf": [
+          { "$ref": "#/$defs/convertedVideo" },
+          { "$ref": "#/$defs/unsupportedVideo" }
+        ]
+      }
+    },
+    "pages": {
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/relativePath" },
+      "additionalProperties": {
+        "type": "array",
+        "items": { "$ref": "#/$defs/relativePath" }
+      }
+    }
+  },
+  "$defs": {
+    "relativePath": {
+      "type": "string",
+      "pattern": "^(?!/)(?!.*/$)(?!.*//)(?!(?:.*/)?\\.{1,2}(?:/|$))[^\\\\]+$"
+    },
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "convertedVideo": {
+      "type": "object",
+      "required": ["id", "sha256", "codecs", "segments", "convertedAt"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/relativePath" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "duration": { "type": "number", "exclusiveMinimum": 0 },
+        "codecs": {
+          "type": "object",
+          "required": ["video"],
+          "additionalProperties": false,
+          "properties": {
+            "video": { "const": "h264" },
+            "audio": { "type": "string", "minLength": 1 }
+          }
+        },
+        "segments": { "type": "integer", "minimum": 1 },
+        "poster": { "type": "string", "pattern": "^[^/\\\\]+\\.jpg$" },
+        "convertedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "unsupportedVideo": {
+      "type": "object",
+      "required": ["id", "sha256", "unsupported"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/relativePath" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "unsupported": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

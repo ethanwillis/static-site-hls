@@ -1,0 +1,51 @@
+{
+  "name": "@lessconversation/static-site-hls",
+  "version": "0.1.0",
+  "description": "Convert the local videos of a Scroll site to HLS with WASIX ffmpeg, point the .scroll sources at the playlists, and rebuild with scroll.",
+  "type": "module",
+  "bin": {
+    "static-site-hls": "bin/static-site-hls.js"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.js\"",
+    "try": "npx --yes --package \"./$(npm pack --silent)\" static-site-hls",
+    "deps:check": "node scripts/update-deps.js --check",
+    "deps:update": "node scripts/update-deps.js",
+    "release:stage": "node scripts/stage-release.js"
+  },
+  "exports": {
+    ".": "./src/index.js",
+    "./convert": "./src/convert.js",
+    "./serve": "./src/serve.js",
+    "./schemas/*": "./schemas/*"
+  },
+  "files": [
+    "bin",
+    "src",
+    "schemas"
+  ],
+  "keywords": [
+    "hls",
+    "scroll",
+    "static-site",
+    "video",
+    "ffmpeg",
+    "wasix",
+    "wasmer"
+  ],
+  "dependencies": {
+    "@wasmer/sdk": "0.19.1",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "hls.js": "1.7.3"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "semver": "^7.8.5"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "videosDir": "streams",
+  "videos": {
+    "why.mp4": {
+      "id": "why",
+      "sha256": "86b7b47b55421902e7a231063e4005fdea91b4e50bcde9ccf5e401ba1f800093",
+      "duration": 169.035542,
+      "codecs": {
+        "video": "h264",
+        "audio": "aac"
+      },
+      "segments": 26,
+      "convertedAt": "2026-10-27T15:32:36.481Z"
+    },
+    "koa.mp4": {
+      "id": "koa",
+      "sha256": "a39fb8cb75e190bd51c0d004bfaa12df197072ae8d1dfe1154214024126d83e3",
+      "duration": 27.894542,
+      "codecs": {
+        "video": "h264",
+        "audio": "aac"
+      },
+      "segments": 3,
+      "convertedAt": "2026-10-27T15:32:36.526Z"
+    },
+    "launchation12days.mp4": {
+      "id": "launchation12days",
+      "sha256": "b161f18d864e0de4aa4b3d7a13bf4ff621f21eb6022eadf5c9bbecdfce783372",
+      "duration": 97.330567,
+      "codecs": {
+        "video": "h264",
+        "audio": "aac"
+      },
+      "segments": 15,
+      "convertedAt": "2026-10-27T15:32:36.618Z"
+    },
+    "launchationBrunch.mp4": {
+      "id": "launchationBrunch",
+      "sha256": "7387b5966c690657d9fa8d7c07687c044ba70615c0b525f923f527a9d01d5966",
+      "duration": 47.881167,
+      "codecs": {
+        "video": "h264",
+        "audio": "aac"
+      },
+      "segments": 6,
+      "convertedAt": "2026-10-27T15:32:36.668Z"
+    },
+    "tenDays.mp4": {
+      "id": "tenDays",
+      "sha256": "6d84ac55e0eaf14e79be4e55f06b752e18f453f6e870e75a9191b18fff87ed11",
+      "duration": 119.6195,
+      "codecs": {
+        "video": "h264",
+        "audio": "aac"
+      },
+      "segments": 17,
+      "convertedAt": "2026-10-27T15:32:36.771Z"
+    },
+    "thereWillBeGolf.mp4": {
+      "id": "thereWillBeGolf",
+      "sha256": "a2f0f95ea62872ff10633255fb3277dcd19eb179341634572bde15a1854c5445",
+      "duration": 222.288733,
+      "codecs": {
+        "video": "h264",
+        "audio": "aac"
+      },
+      "segments": 30,
+      "convertedAt": "2026-10-27T15:32:36.919Z"
+    }
+  },
+  "pages": {
+    "readme.scroll": [
+      "koa.mp4",
+      "launchation12days.mp4",
+      "launchationBrunch.mp4",
+      "tenDays.mp4",
+      "thereWillBeGolf.mp4",
+      "why.mp4"
+    ]
+  }
+}
